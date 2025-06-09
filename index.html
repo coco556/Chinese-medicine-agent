@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>漢方相談エージェント代理店制度のご案内</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #374151;
+            background: linear-gradient(to bottom, #f0fdf4, #ffffff);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .badge {
+            display: inline-block;
+            background-color: #dcfce7;
+            color: #166534;
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #111827;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero .subtitle {
+            display: block;
+            color: #059669;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: #6b7280;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .hero .highlight {
+            font-weight: 600;
+            color: #059669;
+        }
+
+        .button-group {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.375rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.2s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background-color: #059669;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #047857;
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: #374151;
+            border: 1px solid #d1d5db;
+        }
+
+        .btn-outline:hover {
+            background-color: #f9fafb;
+        }
+
+        .btn svg {
+            margin-left: 0.5rem;
+            width: 1.25rem;
+            height: 1.25rem;
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 4rem 0;
+        }
+
+        .section-gray {
+            background-color: #f9fafb;
+        }
+
+        .section-green {
+            background-color: #f0fdf4;
+        }
+
+        .section h2 {
+            font-size: 2rem;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #111827;
+        }
+
+        .section h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: #059669;
+        }
+
+        /* Grid Layouts */
+        .grid {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .grid-3 {
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+
+        .grid-2 {
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        }
+
+        /* Card Styles */
+        .card {
+            background: white;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .card-header {
+            margin-bottom: 1rem;
+        }
+
+        .card-icon {
+            width: 3rem;
+            height: 3rem;
+            color: #059669;
+            margin: 0 auto 1rem;
+        }
+
+        .card-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-content p {
+            color: #6b7280;
+        }
+
+        /* Special Cards */
+        .reward-card {
+            border: 2px solid;
+            text-align: center;
+        }
+
+        .gold-card {
+            border-color: #fde68a;
+        }
+
+        .gold-card .card-header {
+            background-color: #fffbeb;
+            color: #92400e;
+            margin: -1.5rem -1.5rem 1.5rem -1.5rem;
+            padding: 1rem;
+            border-radius: 0.5rem 0.5rem 0 0;
+        }
+
+        .platinum-card {
+            border-color: #e9d5ff;
+        }
+
+        .platinum-card .card-header {
+            background-color: #faf5ff;
+            color: #7c2d12;
+            margin: -1.5rem -1.5rem 1.5rem -1.5rem;
+            padding: 1rem;
+            border-radius: 0.5rem 0.5rem 0 0;
+        }
+
+        .reward-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+        }
+
+        .reward-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .reward-value {
+            font-weight: 600;
+        }
+
+        /* Info Boxes */
+        .info-box {
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            margin-top: 2rem;
+        }
+
+        .info-box-blue {
+            background-color: #eff6ff;
+        }
+
+        .info-box-blue h3 {
+            color: #1e40af;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .info-box-blue p {
+            color: #1d4ed8;
+        }
+
+        .info-box-orange {
+            background-color: #fff7ed;
+            border: 2px solid #fed7aa;
+        }
+
+        .info-box-orange h3 {
+            color: #9a3412;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .info-box-green {
+            background-color: #dcfce7;
+        }
+
+        .info-box-green h4 {
+            color: #166534;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .info-box-green ul {
+            color: #15803d;
+            list-style: none;
+        }
+
+        .info-box-green li {
+            margin-bottom: 0.25rem;
+        }
+
+        /* Check List */
+        .check-list {
+            list-style: none;
+        }
+
+        .check-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 0.75rem;
+        }
+
+        .check-icon {
+            width: 1.25rem;
+            height: 1.25rem;
+            color: #059669;
+            margin-right: 0.75rem;
+            margin-top: 0.125rem;
+            flex-shrink: 0;
+        }
+
+        /* Flow Cards */
+        .flow-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .flow-card {
+            width: 100%;
+            max-width: 16rem;
+            text-align: center;
+            background: white;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+        }
+
+        .flow-number {
+            width: 3rem;
+            height: 3rem;
+            background-color: #059669;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 1.25rem;
+            font-weight: bold;
+        }
+
+        .flow-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .flow-description {
+            font-size: 0.875rem;
+            color: #6b7280;
+        }
+
+        .arrow-icon {
+            width: 1.5rem;
+            height: 1.5rem;
+            color: #9ca3af;
+            display: none;
+        }
+
+        /* Contact Section */
+        .contact-card {
+            background: white;
+            border-radius: 0.5rem;
+            padding: 2rem;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+            max-width: 32rem;
+            margin: 0 auto;
+        }
+
+        .contact-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #059669;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .contact-icon {
+            width: 1.25rem;
+            height: 1.25rem;
+            color: #059669;
+            margin-right: 0.75rem;
+        }
+
+        .contact-link {
+            color: #059669;
+            text-decoration: underline;
+            font-weight: 600;
+            font-size: 1.125rem;
+        }
+
+        .contact-link:hover {
+            color: #047857;
+        }
+
+        /* Popup */
+        .popup {
+            position: absolute;
+            left: calc(100% + 0.5rem);
+            background-color: #ef4444;
+            color: white;
+            padding: 0.75rem;
+            border-radius: 0.5rem;
+            font-size: 0.875rem;
+            font-weight: bold;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            animation: pulse 2s infinite;
+            white-space: nowrap;
+        }
+
+        .popup::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translate(-100%, -50%);
+            width: 0;
+            height: 0;
+            border-top: 4px solid transparent;
+            border-bottom: 4px solid transparent;
+            border-right: 4px solid #ef4444;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        /* Footer */
+        .footer {
+            background: white;
+            border-top: 1px solid #e5e7eb;
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-icon {
+            width: 1.5rem;
+            height: 1.5rem;
+            color: #2563eb;
+            margin-right: 0.5rem;
+        }
+
+        .footer-link {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #111827;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-link:hover {
+            color: #2563eb;
+        }
+
+        .footer-text {
+            color: #6b7280;
+            font-size: 0.875rem;
+        }
+
+        /* Responsive Design */
+        @media (min-width: 640px) {
+            .button-group {
+                flex-direction: row;
+                justify-content: center;
+            }
+
+            .hero h1 {
+                font-size: 4rem;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .flow-container {
+                flex-direction: row;
+                justify-content: center;
+            }
+
+            .arrow-icon {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 5rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .container {
+                padding: 0 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="badge">健康意識の高い人をつなぐ新しいビジネス</div>
+            <h1>
+                漢方相談エージェント
+                <span class="subtitle">代理店制度のご案内</span>
+            </h1>
+            <p>
+                あなたが「紹介者＝エージェント」となり、<br>
+                漢方相談をしたい方を春日部第一薬局へ紹介することで<br>
+                <span class="highlight">継続的な報酬</span>が得られる制度です
+            </p>
+            <div class="button-group">
+                <a href="https://lin.ee/w5z2Hnb" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                    今すぐ問い合わせ
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                    </svg>
+                </a>
+                <a href="#contact" class="btn btn-outline">お問い合わせ</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- What is Kampo Agent -->
+    <section class="section">
+        <div class="container">
+            <h2>漢方相談エージェントとは？</h2>
+            <div class="grid grid-3">
+                <div class="card">
+                    <div class="card-header">
+                        <svg class="card-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                        </svg>
+                        <div class="card-title">紹介者として活動</div>
+                    </div>
+                    <div class="card-content">
+                        <p>あなたが漢方相談を必要とする方を春日部第一薬局へ紹介</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <svg class="card-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                        </svg>
+                        <div class="card-title">健康をサポート</div>
+                    </div>
+                    <div class="card-content">
+                        <p>自然療法や漢方に関心のある方の健康をサポート</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <svg class="card-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+                        </svg>
+                        <div class="card-title">継続的な収入</div>
+                    </div>
+                    <div class="card-content">
+                        <p>紹介した方が継続利用することで長期的な報酬を獲得</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Target Customers -->
+    <section class="section section-gray">
+        <div class="container">
+            <h2>紹介していただきたい相談者様</h2>
+            <div class="grid grid-2">
+                <div>
+                    <h3>想定されるご相談者様</h3>
+                    <ul class="check-list">
+                        <li class="check-item">
+                            <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            <span>漢方や自然療法に関心がある方</span>
+                        </li>
+                        <li class="check-item">
+                            <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            <span>西洋医学に限界を感じている方</span>
+                        </li>
+                        <li class="check-item">
+                            <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            <span>女性の体調を気にする方</span>
+                        </li>
+                        <li class="check-item">
+                            <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            <span>家族や子どもの健康に敏感な方</span>
+                        </li>
+                        <li class="check-item">
+                            <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            <span>親御さんの健康・病気で困っている方</span>
+                        </li>
+                        <li class="check-item">
+                            <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            <span>ダイエットや体質改善をしたい方</span>
+                        </li>
+                        <li class="check-item">
+                            <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            <span>皮膚や臓器のお悩みを持っている</span>
+                        </li>
+                        <li class="check-item">
+                            <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            <span>花粉症・アレルギー体質を改善したい方</span>
+                        </li>
+                        <li class="check-item">
+                            <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            <span>体調の変化が頻繁にある方</span>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>よくあるお悩み</h3>
+                    <ul class="check-list">
+                        <li class="check-item">
+                            <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            <span>慢性的な疲労・冷え性</span>
+                        </li>
+                        <li class="check-item">
+                            <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            <span>原因不明の不調、再発する症状</span>
+                        </li>
+                        <li class="check-item">
+                            <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            <span>月経不順・更年期・妊活</span>
+                        </li>
+                        <li class="check-item">
+                            <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            <span>アトピー・病院で治らない皮膚病</span>
+                        </li>
+                        <li class="check-item">
+                            <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            <span>便秘・免疫力低下</span>
+                        </li>
+                        <li class="check-item">
+                            <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            <span>運動なしでダイエットしたい</span>
+                        </li>
+                        <li class="check-item">
+                            <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            <span>白髪・抜け毛・若々しくいたい</span>
+                        </li>
+                        <li class="check-item">
+                            <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            <span>ED・痔</span>
+                        </li>
+                        <li class="check-item">
+                            <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            <span>めまい・耳鳴り</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="info-box info-box-green">
+                <h4>共通の価値観</h4>
+                <ul>
+                    <li>• 「自分の体を自分で整える」意識がある</li>
+                    <li>• 個別に寄り添ってくれる相談を求めている</li>
+                    <li>• 漢方・東洋医学への信頼と期待がある</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reward System -->
+    <section class="section">
+        <div class="container">
+            <h2>報酬制度について</h2>
+            <div class="grid grid-2">
+                <div class="card reward-card gold-card">
+                    <div class="card-header">
+                        <div class="card-title">Gold Agent</div>
+                        <div style="font-size: 0.875rem; opacity: 0.8;">ゴールドエージェント</div>
+                    </div>
+                    <div class="card-content">
+                        <div class="reward-item">
+                            <span>初回相談紹介料</span>
+                            <span class="reward-value">3,300円</span>
+                        </div>
+                        <div class="reward-item">
+                            <span>初回購入報奨金</span>
+                            <span class="reward-value">15%</span>
+                        </div>
+                        <div class="reward-item">
+                            <span>2回目以降購入報奨金</span>
+                            <span class="reward-value">5%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card reward-card platinum-card">
+                    <div class="card-header">
+                        <div class="card-title">Platinum Agent</div>
+                        <div style="font-size: 0.875rem; opacity: 0.8;">プレミアムエージェント</div>
+                    </div>
+                    <div class="card-content">
+                        <div class="reward-item">
+                            <span>初回相談紹介料</span>
+                            <span class="reward-value">3,300円</span>
+                        </div>
+                        <div class="reward-item">
+                            <span>初回購入報奨金</span>
+                            <span class="reward-value">20%</span>
+                        </div>
+                        <div class="reward-item">
+                            <span>2回目以降購入報奨金</span>
+                            <span class="reward-value">10%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="info-box info-box-blue">
+                <h3>報酬シミュレーション例</h3>
+                <p style="margin-bottom: 0.5rem;">Gold Agentで購入価格30,000円の相談者様紹介の場合：</p>
+                <div style="margin-bottom: 1rem;">
+                    <div class="reward-item">
+                        <span>初回相談紹介料</span>
+                        <span>3,300円</span>
+                    </div>
+                    <div class="reward-item">
+                        <span>初回購入報奨金</span>
+                        <span>4,500円（30,000円 × 15%）</span>
+                    </div>
+                    <div class="reward-item" style="border-top: 1px solid #93c5fd; padding-top: 0.5rem; font-weight: 600;">
+                        <span>合計報酬</span>
+                        <span>7,800円／1名紹介あたり</span>
+                    </div>
+                </div>
+                <p style="font-weight: 600; color: #1e40af;">
+                    ✅ たった8名の紹介で回収可能！長期的にストック型収入が狙えます。
+                </p>
+            </div>
+            <div class="info-box info-box-orange">
+                <h3>🎯 0次募集特別価格（先着10名限定）</h3>
+                <div class="grid grid-2">
+                    <div style="text-align: center;">
+                        <p style="color: #9a3412; font-weight: 600;">Gold Agent</p>
+                        <p style="font-size: 0.875rem; color: #ea580c;">通常加盟金：100,000円（税別）</p>
+                        <p style="font-size: 1.125rem; font-weight: bold; color: #9a3412;">特別価格：55,000円（税別）</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <p style="color: #9a3412; font-weight: 600;">Platinum Agent</p>
+                        <p style="font-size: 0.875rem; color: #ea580c;">通常加盟金：300,000円（税別）</p>
+                        <p style="font-size: 1.125rem; font-weight: bold; color: #9a3412;">特別価格：150,000円（税別）</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Activity Flow -->
+    <section class="section section-gray">
+        <div class="container">
+            <h2>活動の流れ</h2>
+            <div class="flow-container">
+                <div class="flow-card">
+                    <div class="flow-number">1</div>
+                    <div class="flow-title">エージェント<br>契約</div>
+                    <div class="flow-description">Gold/Platinum Agentとして契約</div>
+                </div>
+                <svg class="arrow-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                </svg>
+                <div class="flow-card">
+                    <div class="flow-number">2</div>
+                    <div class="flow-title">相談者様を紹介</div>
+                    <div class="flow-description">SNS・ブログ・対面など自由な方法で</div>
+                </div>
+                <svg class="arrow-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                </svg>
+                <div class="flow-card">
+                    <div class="flow-number">3</div>
+                    <div class="flow-title">来店・相談</div>
+                    <div class="flow-description">春日部第一薬局で専門相談</div>
+                </div>
+                <svg class="arrow-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                </svg>
+                <div class="flow-card">
+                    <div class="flow-number">4</div>
+                    <div class="flow-title">報酬お支払い</div>
+                    <div class="flow-description">月締めでお振込み</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Activity Points -->
+    <section class="section">
+        <div class="container">
+            <h2>活動のポイント</h2>
+            <div class="grid grid-2">
+                <div>
+                    <ul class="check-list">
+                        <li class="check-item">
+                            <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            <span>ご紹介手法は自由（対面かお繋ぎ）</span>
+                        </li>
+                        <li class="check-item">
+                            <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            <span>商品説明・相談対応は「春日部第一薬局」がすべて対応</span>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <ul class="check-list">
+                        <li class="check-item">
+                            <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            <span>ご紹介条件は、ご相談者様が「春日部第一薬局」へ来店して相談を受けること</span>
+                        </li>
+                        <li class="check-item">
+                            <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            <span>難しい知識不要！「体に優しいものに興味ある人」をつなぐだけ</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recommended For -->
+    <section class="section section-green">
+        <div class="container">
+            <h2>こんな方におすすめ！</h2>
+            <div class="grid grid-3">
+                <div class="card">
+                    <div class="card-content">
+                        <svg class="card-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                        <p style="font-weight: 500;">副業を探している個人事業主／主婦の方</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-content">
+                        <svg class="card-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                        <p style="font-weight: 500;">美容・健康系サロン経営者</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-content">
+                        <svg class="card-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                        <p style="font-weight: 500;">コミュニティや講座を持っている方</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-content">
+                        <svg class="card-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                        <p style="font-weight: 500;">フリーランスのコーチ／カウンセラー</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-content">
+                        <svg class="card-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                        <p style="font-weight: 500;">自然志向の人が周りに多い方</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-content">
+                        <svg class="card-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                        <p style="font-weight: 500;">鍼灸師、整体師、理学療法士</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-content">
+                        <svg class="card-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                        <p style="font-weight: 500;">調剤薬局の薬剤師</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h2>お申し込み・お問い合わせ</h2>
+            <p style="text-align: center; font-size: 1.125rem; color: #6b7280; margin-bottom: 2rem;">
+                ご興味をお持ちの方は、下記公式LINEまで「エージェント希望」とご連絡ください。
+            </p>
+            <div class="contact-card">
+                <div class="contact-title">春日部第一薬局</div>
+                <div style="display: flex; flex-direction: column; gap: 1rem;">
+                    <div class="contact-item">
+                        <svg class="contact-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+                        </svg>
+                        <a href="https://lin.ee/mSOSc1D" target="_blank" rel="noopener noreferrer" class="contact-link">
+                            公式LINE
+                        </a>
+                        <div class="popup">
+                            こちらを<br>クリック！
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <svg class="contact-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9v-9m0-9v9"/>
+                        </svg>
+                        <a href="https://www.kasukabe-kampoh.co.jp/" target="_blank" rel="noopener noreferrer" class="contact-link">
+                            https://www.kasukabe-kampoh.co.jp/
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <svg class="footer-icon" fill="currentColor" viewBox="0 0 24 24">
+                        <rect x="3" y="14" width="4" height="7" />
+                        <rect x="7" y="10" width="4" height="11" />
+                        <rect x="11" y="6" width="4" height="15" />
+                        <rect x="15" y="2" width="4" height="19" />
+                    </svg>
+                    <a href="https://coco556.github.io/BizCompass-LP/" target="_blank" rel="noopener noreferrer" class="footer-link">
+                        BizCompass
+                    </a>
+                </div>
+            </div>
+            <p class="footer-text">© 2025 BizCompass. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

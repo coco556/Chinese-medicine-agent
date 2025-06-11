@@ -2,82 +2,225 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Googleサーチコンソール -->
-    <meta name="google-site-verification" content="qV2GKdvqkBeJnVKdDjM6p9JCOkUJqoQL-hsJAOgq5zg" />
-
-    <!-- Googleアナリティクス -->
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>漢方相談エージェント代理店制度のご案内</title>
     <style>
-        * {
+        /* リセットとベーススタイル */
+        *, *::before, *::after {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        :root {
+            --primary-color: #059669;
+            --primary-dark: #047857;
+            --primary-light: #dcfce7;
+            --secondary-color: #1e40af;
+            --accent-color: #ef4444;
+            --text-dark: #111827;
+            --text-medium: #374151;
+            --text-light: #6b7280;
+            --bg-light: #f9fafb;
+            --bg-green-light: #f0fdf4;
+            --border-light: #e5e7eb;
+            --gold-light: #fde68a;
+            --gold-bg: #fffbeb;
+            --gold-text: #92400e;
+            --platinum-light: #e9d5ff;
+            --platinum-bg: #faf5ff;
+            --platinum-text: #7c2d12;
+            --orange-light: #fed7aa;
+            --orange-bg: #fff7ed;
+            --orange-text: #9a3412;
+            --blue-light: #93c5fd;
+            --blue-bg: #eff6ff;
+            --blue-text: #1e40af;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --radius-sm: 0.25rem;
+            --radius: 0.375rem;
+            --radius-md: 0.5rem;
+            --radius-lg: 0.75rem;
+            --radius-full: 9999px;
+        }
+
+        html {
+            font-size: 16px;
+            scroll-behavior: smooth;
+            -webkit-text-size-adjust: 100%;
+        }
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
             line-height: 1.6;
-            color: #374151;
-            background: linear-gradient(to bottom, #f0fdf4, #ffffff);
+            color: var(--text-medium);
+            background: linear-gradient(to bottom, var(--bg-green-light), #ffffff);
             min-height: 100vh;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
+        img, svg {
+            max-width: 100%;
+            height: auto;
+            vertical-align: middle;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        /* レイアウト */
         .container {
+            width: 100%;
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 1rem;
         }
 
+        @media (min-width: 640px) {
+            .container {
+                padding: 0 1.5rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .container {
+                padding: 0 2rem;
+            }
+        }
+
+        .section {
+            padding: 3rem 0;
+        }
+
+        @media (min-width: 768px) {
+            .section {
+                padding: 4rem 0;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .section {
+                padding: 5rem 0;
+            }
+        }
+
+        .section-gray {
+            background-color: var(--bg-light);
+        }
+
+        .section-green {
+            background-color: var(--bg-green-light);
+        }
+
+        /* タイポグラフィ */
+        h1, h2, h3, h4, h5, h6 {
+            line-height: 1.2;
+            color: var(--text-dark);
+            font-weight: 700;
+        }
+
+        h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 1.5rem;
+        }
+
+        h2 {
+            font-size: clamp(1.5rem, 4vw, 2.25rem);
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            h2 {
+                margin-bottom: 3rem;
+            }
+        }
+
+        h3 {
+            font-size: clamp(1.125rem, 3vw, 1.5rem);
+            margin-bottom: 1rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
         /* Hero Section */
         .hero {
-            padding: 4rem 0;
+            padding: 3rem 0;
             text-align: center;
+        }
+
+        @media (min-width: 768px) {
+            .hero {
+                padding: 4rem 0;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .hero {
+                padding: 5rem 0;
+            }
         }
 
         .badge {
             display: inline-block;
-            background-color: #dcfce7;
-            color: #166534;
+            background-color: var(--primary-light);
+            color: var(--primary-dark);
             padding: 0.5rem 1rem;
-            border-radius: 9999px;
+            border-radius: var(--radius-full);
             font-size: 0.875rem;
             font-weight: 500;
             margin-bottom: 1.5rem;
         }
 
-        .hero h1 {
-            font-size: 3rem;
-            font-weight: bold;
-            color: #111827;
-            margin-bottom: 1.5rem;
-            line-height: 1.2;
-        }
-
         .hero .subtitle {
             display: block;
-            color: #059669;
+            color: var(--primary-color);
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
         }
 
         .hero p {
-            font-size: 1.25rem;
-            color: #6b7280;
+            font-size: clamp(1rem, 2.5vw, 1.25rem);
+            color: var(--text-light);
             margin-bottom: 2rem;
             line-height: 1.6;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .hero .highlight {
             font-weight: 600;
-            color: #059669;
+            color: var(--primary-color);
         }
 
+        /* ボタン */
         .button-group {
             display: flex;
             flex-direction: column;
             gap: 1rem;
             align-items: center;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        @media (min-width: 640px) {
+            .button-group {
+                flex-direction: row;
+            }
         }
 
         .btn {
@@ -85,32 +228,34 @@
             align-items: center;
             justify-content: center;
             padding: 0.75rem 1.5rem;
-            border-radius: 0.375rem;
+            border-radius: var(--radius);
             font-weight: 500;
             text-decoration: none;
             transition: all 0.2s;
             border: none;
             cursor: pointer;
             font-size: 1rem;
+            min-width: 160px;
+            min-height: 48px; /* タッチターゲットサイズ確保 */
         }
 
         .btn-primary {
-            background-color: #059669;
+            background-color: var(--primary-color);
             color: white;
         }
 
         .btn-primary:hover {
-            background-color: #047857;
+            background-color: var(--primary-dark);
         }
 
         .btn-outline {
             background-color: transparent;
-            color: #374151;
-            border: 1px solid #d1d5db;
+            color: var(--text-medium);
+            border: 1px solid var(--border-light);
         }
 
         .btn-outline:hover {
-            background-color: #f9fafb;
+            background-color: var(--bg-light);
         }
 
         .btn svg {
@@ -119,55 +264,49 @@
             height: 1.25rem;
         }
 
-        /* Section Styles */
-        .section {
-            padding: 4rem 0;
-        }
-
-        .section-gray {
-            background-color: #f9fafb;
-        }
-
-        .section-green {
-            background-color: #f0fdf4;
-        }
-
-        .section h2 {
-            font-size: 2rem;
-            font-weight: bold;
-            text-align: center;
-            margin-bottom: 3rem;
-            color: #111827;
-        }
-
-        .section h3 {
-            font-size: 1.25rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-            color: #059669;
-        }
-
-        /* Grid Layouts */
+        /* グリッドレイアウト */
         .grid {
             display: grid;
-            gap: 2rem;
+            gap: 1.5rem;
         }
 
-        .grid-3 {
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        @media (min-width: 768px) {
+            .grid {
+                gap: 2rem;
+            }
         }
 
-        .grid-2 {
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        .grid-1 {
+            grid-template-columns: 1fr;
         }
 
-        /* Card Styles */
+        @media (min-width: 640px) {
+            .grid-2 {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 640px) {
+            .grid-3 {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .grid-3 {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        /* カード */
         .card {
             background: white;
-            border-radius: 0.5rem;
+            border-radius: var(--radius-md);
             padding: 1.5rem;
-            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
-            text-align: center;
+            box-shadow: var(--shadow);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
         }
 
         .card-header {
@@ -177,7 +316,7 @@
         .card-icon {
             width: 3rem;
             height: 3rem;
-            color: #059669;
+            color: var(--primary-color);
             margin: 0 auto 1rem;
         }
 
@@ -187,44 +326,54 @@
             margin-bottom: 0.5rem;
         }
 
-        .card-content p {
-            color: #6b7280;
+        .card-content {
+            flex: 1;
         }
 
-        /* Special Cards */
+        .card-content p {
+            color: var(--text-light);
+            margin-bottom: 0;
+        }
+
+        /* 特殊カード */
+        .text-center {
+            text-align: center;
+        }
+
         .reward-card {
             border: 2px solid;
             text-align: center;
         }
 
         .gold-card {
-            border-color: #fde68a;
+            border-color: var(--gold-light);
         }
 
         .gold-card .card-header {
-            background-color: #fffbeb;
-            color: #92400e;
+            background-color: var(--gold-bg);
+            color: var(--gold-text);
             margin: -1.5rem -1.5rem 1.5rem -1.5rem;
             padding: 1rem;
-            border-radius: 0.5rem 0.5rem 0 0;
+            border-radius: var(--radius-md) var(--radius-md) 0 0;
         }
 
         .platinum-card {
-            border-color: #e9d5ff;
+            border-color: var(--platinum-light);
         }
 
         .platinum-card .card-header {
-            background-color: #faf5ff;
-            color: #7c2d12;
+            background-color: var(--platinum-bg);
+            color: var(--platinum-text);
             margin: -1.5rem -1.5rem 1.5rem -1.5rem;
             padding: 1rem;
-            border-radius: 0.5rem 0.5rem 0 0;
+            border-radius: var(--radius-md) var(--radius-md) 0 0;
         }
 
         .reward-item {
             display: flex;
             justify-content: space-between;
             margin-bottom: 1rem;
+            padding: 0 0.5rem;
         }
 
         .reward-item:last-child {
@@ -235,51 +384,51 @@
             font-weight: 600;
         }
 
-        /* Info Boxes */
+        /* 情報ボックス */
         .info-box {
             padding: 1.5rem;
-            border-radius: 0.5rem;
+            border-radius: var(--radius-md);
             margin-top: 2rem;
         }
 
         .info-box-blue {
-            background-color: #eff6ff;
+            background-color: var(--blue-bg);
         }
 
         .info-box-blue h3 {
-            color: #1e40af;
+            color: var(--blue-text);
             font-weight: 600;
             margin-bottom: 1rem;
         }
 
         .info-box-blue p {
-            color: #1d4ed8;
+            color: var(--blue-text);
         }
 
         .info-box-orange {
-            background-color: #fff7ed;
-            border: 2px solid #fed7aa;
+            background-color: var(--orange-bg);
+            border: 2px solid var(--orange-light);
         }
 
         .info-box-orange h3 {
-            color: #9a3412;
+            color: var(--orange-text);
             font-weight: 600;
             margin-bottom: 1rem;
             text-align: center;
         }
 
         .info-box-green {
-            background-color: #dcfce7;
+            background-color: var(--primary-light);
         }
 
         .info-box-green h4 {
-            color: #166534;
+            color: var(--primary-dark);
             font-weight: 600;
             margin-bottom: 0.5rem;
         }
 
         .info-box-green ul {
-            color: #15803d;
+            color: var(--primary-color);
             list-style: none;
         }
 
@@ -287,7 +436,7 @@
             margin-bottom: 0.25rem;
         }
 
-        /* Check List */
+        /* チェックリスト */
         .check-list {
             list-style: none;
         }
@@ -301,13 +450,13 @@
         .check-icon {
             width: 1.25rem;
             height: 1.25rem;
-            color: #059669;
+            color: var(--primary-color);
             margin-right: 0.75rem;
             margin-top: 0.125rem;
             flex-shrink: 0;
         }
 
-        /* Flow Cards */
+        /* フローカード */
         .flow-container {
             display: flex;
             flex-direction: column;
@@ -315,20 +464,28 @@
             gap: 2rem;
         }
 
+        @media (min-width: 768px) {
+            .flow-container {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+
         .flow-card {
             width: 100%;
             max-width: 16rem;
             text-align: center;
             background: white;
-            border-radius: 0.5rem;
+            border-radius: var(--radius-md);
             padding: 1.5rem;
-            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+            box-shadow: var(--shadow);
         }
 
         .flow-number {
             width: 3rem;
             height: 3rem;
-            background-color: #059669;
+            background-color: var(--primary-color);
             color: white;
             border-radius: 50%;
             display: flex;
@@ -346,22 +503,29 @@
 
         .flow-description {
             font-size: 0.875rem;
-            color: #6b7280;
+            color: var(--text-light);
         }
 
         .arrow-icon {
             width: 1.5rem;
             height: 1.5rem;
-            color: #9ca3af;
+            color: var(--text-light);
             display: none;
         }
 
-        /* Contact Section */
+        @media (min-width: 768px) {
+            .arrow-icon {
+                display: block;
+                align-self: center;
+            }
+        }
+
+        /* コンタクトセクション */
         .contact-card {
             background: white;
-            border-radius: 0.5rem;
+            border-radius: var(--radius-md);
             padding: 2rem;
-            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+            box-shadow: var(--shadow);
             max-width: 32rem;
             margin: 0 auto;
         }
@@ -369,74 +533,110 @@
         .contact-title {
             font-size: 1.25rem;
             font-weight: 600;
-            color: #059669;
-            margin-bottom: 1rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
             text-align: center;
+        }
+
+        .contact-items {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
         }
 
         .contact-item {
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 1rem;
             position: relative;
         }
 
         .contact-icon {
             width: 1.25rem;
             height: 1.25rem;
-            color: #059669;
+            color: var(--primary-color);
             margin-right: 0.75rem;
+            flex-shrink: 0;
         }
 
         .contact-link {
-            color: #059669;
+            color: var(--primary-color);
             text-decoration: underline;
             font-weight: 600;
             font-size: 1.125rem;
+            word-break: break-all;
         }
 
         .contact-link:hover {
-            color: #047857;
+            color: var(--primary-dark);
         }
 
-        /* Popup */
+        /* ポップアップ */
         .popup {
             position: absolute;
-            left: calc(100% + 0.5rem);
-            background-color: #ef4444;
+            background-color: var(--accent-color);
             color: white;
-            padding: 0.75rem;
-            border-radius: 0.5rem;
+            padding: 0.5rem 0.75rem;
+            border-radius: var(--radius);
             font-size: 0.875rem;
             font-weight: bold;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            box-shadow: var(--shadow-md);
             animation: pulse 2s infinite;
             white-space: nowrap;
+            z-index: 10;
         }
 
-        .popup::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 50%;
-            transform: translate(-100%, -50%);
-            width: 0;
-            height: 0;
-            border-top: 4px solid transparent;
-            border-bottom: 4px solid transparent;
-            border-right: 4px solid #ef4444;
+        @media (max-width: 639px) {
+            .popup {
+                top: -3rem;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            
+            .popup::before {
+                content: '';
+                position: absolute;
+                top: 100%;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 0;
+                height: 0;
+                border-left: 8px solid transparent;
+                border-right: 8px solid transparent;
+                border-top: 8px solid var(--accent-color);
+            }
+        }
+
+        @media (min-width: 640px) {
+            .popup {
+                left: calc(100% + 0.5rem);
+                top: 50%;
+                transform: translateY(-50%);
+            }
+            
+            .popup::before {
+                content: '';
+                position: absolute;
+                left: -8px;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 0;
+                height: 0;
+                border-top: 8px solid transparent;
+                border-bottom: 8px solid transparent;
+                border-right: 8px solid var(--accent-color);
+            }
         }
 
         @keyframes pulse {
             0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
+            50% { opacity: 0.7; }
         }
 
-        /* Footer */
+        /* フッター */
         .footer {
             background: white;
-            border-top: 1px solid #e5e7eb;
+            border-top: 1px solid var(--border-light);
             padding: 2rem 0;
             text-align: center;
         }
@@ -463,7 +663,7 @@
         .footer-link {
             font-size: 1.125rem;
             font-weight: 600;
-            color: #111827;
+            color: var(--text-dark);
             text-decoration: none;
             transition: color 0.2s;
         }
@@ -473,42 +673,48 @@
         }
 
         .footer-text {
-            color: #6b7280;
+            color: var(--text-light);
             font-size: 0.875rem;
         }
 
-        /* Responsive Design */
-        @media (min-width: 640px) {
-            .button-group {
-                flex-direction: row;
-                justify-content: center;
-            }
-
-            .hero h1 {
-                font-size: 4rem;
-            }
-        }
-
-        @media (min-width: 768px) {
-            .flow-container {
-                flex-direction: row;
-                justify-content: center;
-            }
-
-            .arrow-icon {
-                display: block;
-            }
-
-            .hero h1 {
-                font-size: 5rem;
-            }
-        }
-
-        @media (min-width: 1024px) {
-            .container {
-                padding: 0 2rem;
-            }
-        }
+        /* ユーティリティクラス */
+        .mt-1 { margin-top: 0.25rem; }
+        .mt-2 { margin-top: 0.5rem; }
+        .mt-4 { margin-top: 1rem; }
+        .mt-8 { margin-top: 2rem; }
+        .mb-1 { margin-bottom: 0.25rem; }
+        .mb-2 { margin-bottom: 0.5rem; }
+        .mb-4 { margin-bottom: 1rem; }
+        .mb-8 { margin-bottom: 2rem; }
+        .mx-auto { margin-left: auto; margin-right: auto; }
+        .pt-2 { padding-top: 0.5rem; }
+        .pb-2 { padding-bottom: 0.5rem; }
+        .py-2 { padding-top: 0.5rem; padding-bottom: 0.5rem; }
+        .px-2 { padding-left: 0.5rem; padding-right: 0.5rem; }
+        .py-4 { padding-top: 1rem; padding-bottom: 1rem; }
+        .px-4 { padding-left: 1rem; padding-right: 1rem; }
+        .font-bold { font-weight: 700; }
+        .font-semibold { font-weight: 600; }
+        .text-sm { font-size: 0.875rem; }
+        .text-lg { font-size: 1.125rem; }
+        .text-xl { font-size: 1.25rem; }
+        .text-2xl { font-size: 1.5rem; }
+        .border-t { border-top: 1px solid var(--border-light); }
+        .flex { display: flex; }
+        .items-center { align-items: center; }
+        .justify-center { justify-content: center; }
+        .justify-between { justify-content: space-between; }
+        .space-y-1 > * + * { margin-top: 0.25rem; }
+        .space-y-2 > * + * { margin-top: 0.5rem; }
+        .space-y-4 > * + * { margin-top: 1rem; }
+        .space-x-2 > * + * { margin-left: 0.5rem; }
+        .space-x-4 > * + * { margin-left: 1rem; }
+        .w-full { width: 100%; }
+        .max-w-md { max-width: 28rem; }
+        .max-w-lg { max-width: 32rem; }
+        .max-w-xl { max-width: 36rem; }
+        .max-w-2xl { max-width: 42rem; }
+        .max-w-4xl { max-width: 56rem; }
     </style>
 </head>
 <body>
@@ -528,7 +734,7 @@
             <div class="button-group">
                 <a href="https://lin.ee/w5z2Hnb" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
                     今すぐ問い合わせ
-                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="20" height="20">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
                     </svg>
                 </a>
@@ -542,7 +748,7 @@
         <div class="container">
             <h2>漢方相談エージェントとは？</h2>
             <div class="grid grid-3">
-                <div class="card">
+                <div class="card text-center">
                     <div class="card-header">
                         <svg class="card-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
@@ -553,7 +759,7 @@
                         <p>あなたが漢方相談を必要とする方を春日部第一薬局へ紹介</p>
                     </div>
                 </div>
-                <div class="card">
+                <div class="card text-center">
                     <div class="card-header">
                         <svg class="card-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
@@ -564,7 +770,7 @@
                         <p>自然療法や漢方に関心のある方の健康をサポート</p>
                     </div>
                 </div>
-                <div class="card">
+                <div class="card text-center">
                     <div class="card-header">
                         <svg class="card-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
@@ -703,9 +909,9 @@
                     </ul>
                 </div>
             </div>
-            <div class="info-box info-box-green">
+            <div class="info-box info-box-green mt-8">
                 <h4>共通の価値観</h4>
-                <ul>
+                <ul class="space-y-1">
                     <li>• 「自分の体を自分で整える」意識がある</li>
                     <li>• 個別に寄り添ってくれる相談を求めている</li>
                     <li>• 漢方・東洋医学への信頼と期待がある</li>
@@ -722,7 +928,7 @@
                 <div class="card reward-card gold-card">
                     <div class="card-header">
                         <div class="card-title">Gold Agent</div>
-                        <div style="font-size: 0.875rem; opacity: 0.8;">ゴールドエージェント</div>
+                        <div class="text-sm">ゴールドエージェント</div>
                     </div>
                     <div class="card-content">
                         <div class="reward-item">
@@ -742,7 +948,7 @@
                 <div class="card reward-card platinum-card">
                     <div class="card-header">
                         <div class="card-title">Platinum Agent</div>
-                        <div style="font-size: 0.875rem; opacity: 0.8;">プレミアムエージェント</div>
+                        <div class="text-sm">プレミアムエージェント</div>
                     </div>
                     <div class="card-content">
                         <div class="reward-item">
@@ -762,8 +968,8 @@
             </div>
             <div class="info-box info-box-blue">
                 <h3>報酬シミュレーション例</h3>
-                <p style="margin-bottom: 0.5rem;">Gold Agentで購入価格30,000円の相談者様紹介の場合：</p>
-                <div style="margin-bottom: 1rem;">
+                <p class="mb-2">Gold Agentで購入価格30,000円の相談者様紹介の場合：</p>
+                <div class="space-y-2 mb-4">
                     <div class="reward-item">
                         <span>初回相談紹介料</span>
                         <span>3,300円</span>
@@ -772,27 +978,27 @@
                         <span>初回購入報奨金</span>
                         <span>4,500円（30,000円 × 15%）</span>
                     </div>
-                    <div class="reward-item" style="border-top: 1px solid #93c5fd; padding-top: 0.5rem; font-weight: 600;">
+                    <div class="reward-item border-t pt-2 font-semibold">
                         <span>合計報酬</span>
                         <span>7,800円／1名紹介あたり</span>
                     </div>
                 </div>
-                <p style="font-weight: 600; color: #1e40af;">
+                <p class="font-semibold">
                     ✅ たった8名の紹介で回収可能！長期的にストック型収入が狙えます。
                 </p>
             </div>
-            <div class="info-box info-box-orange">
+            <div class="info-box info-box-orange mt-8">
                 <h3>🎯 0次募集特別価格（先着10名限定）</h3>
-                <div class="grid grid-2">
-                    <div style="text-align: center;">
-                        <p style="color: #9a3412; font-weight: 600;">Gold Agent</p>
-                        <p style="font-size: 0.875rem; color: #ea580c;">通常加盟金：100,000円（税別）</p>
-                        <p style="font-size: 1.125rem; font-weight: bold; color: #9a3412;">特別価格：55,000円（税別）</p>
+                <div class="grid grid-2 mt-4">
+                    <div class="text-center">
+                        <p class="font-semibold" style="color: var(--orange-text);">Gold Agent</p>
+                        <p class="text-sm mt-1" style="color: var(--orange-text);">通常加盟金：100,000円（税別）</p>
+                        <p class="text-lg font-bold mt-1" style="color: var(--orange-text);">特別価格：55,000円（税別）</p>
                     </div>
-                    <div style="text-align: center;">
-                        <p style="color: #9a3412; font-weight: 600;">Platinum Agent</p>
-                        <p style="font-size: 0.875rem; color: #ea580c;">通常加盟金：300,000円（税別）</p>
-                        <p style="font-size: 1.125rem; font-weight: bold; color: #9a3412;">特別価格：150,000円（税別）</p>
+                    <div class="text-center">
+                        <p class="font-semibold" style="color: var(--orange-text);">Platinum Agent</p>
+                        <p class="text-sm mt-1" style="color: var(--orange-text);">通常加盟金：300,000円（税別）</p>
+                        <p class="text-lg font-bold mt-1" style="color: var(--orange-text);">特別価格：150,000円（税別）</p>
                     </div>
                 </div>
             </div>
@@ -883,61 +1089,47 @@
         <div class="container">
             <h2>こんな方におすすめ！</h2>
             <div class="grid grid-3">
-                <div class="card">
-                    <div class="card-content">
-                        <svg class="card-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                        </svg>
-                        <p style="font-weight: 500;">副業を探している個人事業主／主婦の方</p>
-                    </div>
+                <div class="card text-center">
+                    <svg class="card-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                    <p class="font-medium">副業を探している個人事業主／主婦の方</p>
                 </div>
-                <div class="card">
-                    <div class="card-content">
-                        <svg class="card-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                        </svg>
-                        <p style="font-weight: 500;">美容・健康系サロン経営者</p>
-                    </div>
+                <div class="card text-center">
+                    <svg class="card-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                    <p class="font-medium">美容・健康系サロン経営者</p>
                 </div>
-                <div class="card">
-                    <div class="card-content">
-                        <svg class="card-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                        </svg>
-                        <p style="font-weight: 500;">コミュニティや講座を持っている方</p>
-                    </div>
+                <div class="card text-center">
+                    <svg class="card-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                    <p class="font-medium">コミュニティや講座を持っている方</p>
                 </div>
-                <div class="card">
-                    <div class="card-content">
-                        <svg class="card-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                        </svg>
-                        <p style="font-weight: 500;">フリーランスのコーチ／カウンセラー</p>
-                    </div>
+                <div class="card text-center">
+                    <svg class="card-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                    <p class="font-medium">フリーランスのコーチ／カウンセラー</p>
                 </div>
-                <div class="card">
-                    <div class="card-content">
-                        <svg class="card-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                        </svg>
-                        <p style="font-weight: 500;">自然志向の人が周りに多い方</p>
-                    </div>
+                <div class="card text-center">
+                    <svg class="card-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                    <p class="font-medium">自然志向の人が周りに多い方</p>
                 </div>
-                <div class="card">
-                    <div class="card-content">
-                        <svg class="card-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                        </svg>
-                        <p style="font-weight: 500;">鍼灸師、整体師、理学療法士</p>
-                    </div>
+                <div class="card text-center">
+                    <svg class="card-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                    <p class="font-medium">鍼灸師、整体師、理学療法士</p>
                 </div>
-                <div class="card">
-                    <div class="card-content">
-                        <svg class="card-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                        </svg>
-                        <p style="font-weight: 500;">調剤薬局の薬剤師</p>
-                    </div>
+                <div class="card text-center">
+                    <svg class="card-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                    <p class="font-medium">調剤薬局の薬剤師</p>
                 </div>
             </div>
         </div>
@@ -947,12 +1139,12 @@
     <section id="contact" class="section">
         <div class="container">
             <h2>お申し込み・お問い合わせ</h2>
-            <p style="text-align: center; font-size: 1.125rem; color: #6b7280; margin-bottom: 2rem;">
+            <p class="text-center text-lg mb-8 max-w-2xl mx-auto">
                 ご興味をお持ちの方は、下記公式LINEまで「エージェント希望」とご連絡ください。
             </p>
             <div class="contact-card">
                 <div class="contact-title">春日部第一薬局</div>
-                <div style="display: flex; flex-direction: column; gap: 1rem;">
+                <div class="contact-items">
                     <div class="contact-item">
                         <svg class="contact-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>

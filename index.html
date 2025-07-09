@@ -498,6 +498,7 @@
             box-shadow: var(--shadow);
             max-width: 32rem;
             margin: 0 auto;
+            text-align: center;
         }
 
         .contact-title {
@@ -505,105 +506,42 @@
             font-weight: 600;
             color: var(--primary-color);
             margin-bottom: 1.5rem;
-            text-align: center;
         }
 
-        .contact-items {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
+        .contact-message {
+            color: var(--text-medium);
+            font-size: 1.125rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
         }
 
-        .contact-item {
-            display: flex;
+        /* CTAボタン */
+        .cta-button {
+            display: inline-flex;
             align-items: center;
             justify-content: center;
-            position: relative;
-            padding: 1rem 0;
-        }
-
-        .contact-icon {
-            width: 1.25rem;
-            height: 1.25rem;
-            color: var(--primary-color);
-            margin-right: 0.75rem;
-            flex-shrink: 0;
-        }
-
-        .contact-link {
-            color: var(--primary-color);
-            text-decoration: underline;
+            padding: 1rem 2rem;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: var(--radius);
             font-weight: 600;
             font-size: 1.125rem;
-            word-break: break-all;
-        }
-
-        .contact-link:hover {
-            color: var(--primary-dark);
-        }
-
-        /* ポップアップ */
-        .popup {
-            position: absolute;
-            background-color: var(--accent-color);
-            color: white;
-            padding: 0.5rem 0.75rem;
-            border-radius: var(--radius);
-            font-size: 0.75rem;
-            font-weight: bold;
+            text-decoration: none;
+            transition: all 0.2s;
             box-shadow: var(--shadow-md);
-            animation: pulse 2s infinite;
-            white-space: nowrap;
-            z-index: 10;
-            line-height: 1.2;
+            min-height: 56px;
         }
 
-        @media (max-width: 639px) {
-            .popup {
-                top: -4.5rem;
-                right: -1rem;
-                transform: none;
-                font-size: 0.7rem;
-                padding: 0.4rem 0.6rem;
-            }
-            
-            .popup::before {
-                content: '';
-                position: absolute;
-                top: 100%;
-                right: 1rem;
-                width: 0;
-                height: 0;
-                border-left: 6px solid transparent;
-                border-right: 6px solid transparent;
-                border-top: 6px solid var(--accent-color);
-            }
+        .cta-button:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-lg);
         }
 
-        @media (min-width: 640px) {
-            .popup {
-                left: calc(100% + 0.5rem);
-                top: 50%;
-                transform: translateY(-50%);
-            }
-            
-            .popup::before {
-                content: '';
-                position: absolute;
-                left: -8px;
-                top: 50%;
-                transform: translateY(-50%);
-                width: 0;
-                height: 0;
-                border-top: 8px solid transparent;
-                border-bottom: 8px solid transparent;
-                border-right: 8px solid var(--accent-color);
-            }
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.7; }
+        .cta-button svg {
+            margin-left: 0.5rem;
+            width: 1.25rem;
+            height: 1.25rem;
         }
 
         /* フッター */
@@ -688,8 +626,8 @@
                 お客様のお悩みに合わせて最適な漢方をご提案いただけます。
             </p>
             <div class="button-group">
-                <a href="#contact" class="btn btn-primary">
-                    商品について相談する
+                <a href="https://forms.gle/VQv8W1fTmiw48J718" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                    注文申込はこちら
                     <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="20" height="20">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
                     </svg>
@@ -931,34 +869,24 @@
     <!-- Contact Section -->
     <section id="contact" class="section">
         <div class="container">
-            <h2>商品に関するお問い合わせ</h2>
+            <h2>商品のご注文について</h2>
             <p class="text-center text-lg mb-8 max-w-2xl mx-auto">
-                商品の詳細や代理店契約について、お気軽にお問い合わせください。<br>
-                専門スタッフが丁寧にご説明いたします。
+                下記のフォームから簡単にご注文いただけます。<br>
+                お客様のお悩みに合わせて最適な漢方をお選びください。
             </p>
             <div class="contact-card">
-                <div class="contact-title">春日部第一薬局</div>
-                <div class="contact-items">
-                    <div class="contact-item">
-                        <svg class="contact-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
-                        </svg>
-                        <a href="https://lin.ee/mSOSc1D" target="_blank" rel="noopener noreferrer" class="contact-link">
-                            公式LINE
-                        </a>
-                        <div class="popup">
-                            商品について<br>相談する！
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <svg class="contact-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9v-9m0-9v9"/>
-                        </svg>
-                        <a href="https://www.kasukabe-kampoh.co.jp/" target="_blank" rel="noopener noreferrer" class="contact-link">
-                            https://www.kasukabe-kampoh.co.jp/
-                        </a>
-                    </div>
+                <div class="contact-title">漢方注文フォーム</div>
+                <div class="contact-message">
+                    ご希望の漢方商品を選択して、<br>
+                    必要事項をご記入の上、送信してください。<br>
+                    ご注文確認後、詳細をご連絡いたします。
                 </div>
+                <a href="https://forms.gle/VQv8W1fTmiw48J718" target="_blank" rel="noopener noreferrer" class="cta-button">
+                    注文申込はこちら
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="20" height="20">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                    </svg>
+                </a>
             </div>
         </div>
     </section>

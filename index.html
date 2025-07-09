@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>漢方相談エージェント代理店制度のご案内</title>
+    <title>春日部第一薬局 代理店向け商品ラインナップ</title>
     <style>
         /* リセットとベーススタイル */
         *, *::before, *::after {
@@ -27,15 +27,15 @@
             --gold-light: #fde68a;
             --gold-bg: #fffbeb;
             --gold-text: #92400e;
-            --platinum-light: #e9d5ff;
-            --platinum-bg: #faf5ff;
-            --platinum-text: #7c2d12;
-            --orange-light: #fed7aa;
-            --orange-bg: #fff7ed;
-            --orange-text: #9a3412;
             --blue-light: #93c5fd;
             --blue-bg: #eff6ff;
             --blue-text: #1e40af;
+            --purple-light: #e9d5ff;
+            --purple-bg: #faf5ff;
+            --purple-text: #7c2d12;
+            --orange-light: #fed7aa;
+            --orange-bg: #fff7ed;
+            --orange-text: #9a3412;
             --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
             --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
             --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
@@ -118,6 +118,18 @@
 
         .section-green {
             background-color: var(--bg-green-light);
+        }
+
+        .section-blue {
+            background-color: var(--blue-bg);
+        }
+
+        .section-purple {
+            background-color: var(--purple-bg);
+        }
+
+        .section-orange {
+            background-color: var(--orange-bg);
         }
 
         /* タイポグラフィ */
@@ -236,7 +248,7 @@
             cursor: pointer;
             font-size: 1rem;
             min-width: 160px;
-            min-height: 48px; /* タッチターゲットサイズ確保 */
+            min-height: 48px;
         }
 
         .btn-primary {
@@ -307,6 +319,12 @@
             height: 100%;
             display: flex;
             flex-direction: column;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
         }
 
         .card-header {
@@ -335,189 +353,141 @@
             margin-bottom: 0;
         }
 
-        /* 特殊カード */
-        .text-center {
-            text-align: center;
-        }
-
-        .reward-card {
-            border: 2px solid;
-            text-align: center;
-        }
-
-        .gold-card {
-            border-color: var(--gold-light);
-        }
-
-        .gold-card .card-header {
-            background-color: var(--gold-bg);
-            color: var(--gold-text);
-            margin: -1.5rem -1.5rem 1.5rem -1.5rem;
-            padding: 1rem;
-            border-radius: var(--radius-md) var(--radius-md) 0 0;
-        }
-
-        .platinum-card {
-            border-color: var(--platinum-light);
-        }
-
-        .platinum-card .card-header {
-            background-color: var(--platinum-bg);
-            color: var(--platinum-text);
-            margin: -1.5rem -1.5rem 1.5rem -1.5rem;
-            padding: 1rem;
-            border-radius: var(--radius-md) var(--radius-md) 0 0;
-        }
-
-        .reward-item {
+        /* 商品カード */
+        .product-card {
+            background: white;
+            border-radius: var(--radius-md);
+            padding: 1.5rem;
+            box-shadow: var(--shadow);
+            height: 100%;
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
+            transition: transform 0.2s, box-shadow 0.2s;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .product-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+            border-radius: var(--radius);
             margin-bottom: 1rem;
-            padding: 0 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
         }
 
-        .reward-item:last-child {
-            margin-bottom: 0;
+        .product-image::before {
+            content: '漢方薬';
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            opacity: 0.3;
         }
 
-        .reward-value {
+        .product-name {
+            font-size: 1.25rem;
             font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .product-category {
+            font-size: 0.875rem;
+            color: var(--primary-color);
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .product-description {
+            color: var(--text-light);
+            margin-bottom: 1rem;
+            flex: 1;
+        }
+
+        .product-effects {
+            list-style: none;
+            margin-bottom: 1rem;
+        }
+
+        .product-effects li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+            font-size: 0.875rem;
+            color: var(--text-medium);
+        }
+
+        .product-effects li::before {
+            content: '✓';
+            color: var(--primary-color);
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+
+        .product-price {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            text-align: center;
+            padding: 0.5rem;
+            background-color: var(--primary-light);
+            border-radius: var(--radius);
+        }
+
+        /* カテゴリセクション */
+        .category-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .category-icon {
+            width: 4rem;
+            height: 4rem;
+            margin: 0 auto 1rem;
+            color: var(--primary-color);
+        }
+
+        .category-title {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+        }
+
+        .category-description {
+            font-size: 1.125rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
         }
 
         /* 情報ボックス */
         .info-box {
-            padding: 1.5rem;
+            padding: 2rem;
             border-radius: var(--radius-md);
             margin-top: 2rem;
-        }
-
-        .info-box-blue {
-            background-color: var(--blue-bg);
-        }
-
-        .info-box-blue h3 {
-            color: var(--blue-text);
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-
-        .info-box-blue p {
-            color: var(--blue-text);
-        }
-
-        .info-box-orange {
-            background-color: var(--orange-bg);
-            border: 2px solid var(--orange-light);
-        }
-
-        .info-box-orange h3 {
-            color: var(--orange-text);
-            font-weight: 600;
-            margin-bottom: 1rem;
             text-align: center;
         }
 
         .info-box-green {
             background-color: var(--primary-light);
+            border: 2px solid var(--primary-color);
         }
 
-        .info-box-green h4 {
+        .info-box-green h3 {
             color: var(--primary-dark);
-            font-weight: 600;
-            margin-bottom: 0.5rem;
+            margin-bottom: 1rem;
         }
 
-        .info-box-green ul {
+        .info-box-green p {
             color: var(--primary-color);
-            list-style: none;
-        }
-
-        .info-box-green li {
-            margin-bottom: 0.25rem;
-        }
-
-        /* チェックリスト */
-        .check-list {
-            list-style: none;
-        }
-
-        .check-item {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 0.75rem;
-        }
-
-        .check-icon {
-            width: 1.25rem;
-            height: 1.25rem;
-            color: var(--primary-color);
-            margin-right: 0.75rem;
-            margin-top: 0.125rem;
-            flex-shrink: 0;
-        }
-
-        /* フローカード */
-        .flow-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 2rem;
-        }
-
-        @media (min-width: 768px) {
-            .flow-container {
-                flex-direction: row;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-        }
-
-        .flow-card {
-            width: 100%;
-            max-width: 16rem;
-            text-align: center;
-            background: white;
-            border-radius: var(--radius-md);
-            padding: 1.5rem;
-            box-shadow: var(--shadow);
-        }
-
-        .flow-number {
-            width: 3rem;
-            height: 3rem;
-            background-color: var(--primary-color);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1rem;
-            font-size: 1.25rem;
-            font-weight: bold;
-        }
-
-        .flow-title {
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-
-        .flow-description {
-            font-size: 0.875rem;
-            color: var(--text-light);
-        }
-
-        .arrow-icon {
-            width: 1.5rem;
-            height: 1.5rem;
-            color: var(--text-light);
-            display: none;
-        }
-
-        @media (min-width: 768px) {
-            .arrow-icon {
-                display: block;
-                align-self: center;
-            }
         }
 
         /* コンタクトセクション */
@@ -549,6 +519,7 @@
             align-items: center;
             justify-content: center;
             position: relative;
+            padding: 1rem 0;
         }
 
         .contact-icon {
@@ -578,32 +549,34 @@
             color: white;
             padding: 0.5rem 0.75rem;
             border-radius: var(--radius);
-            font-size: 0.875rem;
+            font-size: 0.75rem;
             font-weight: bold;
             box-shadow: var(--shadow-md);
             animation: pulse 2s infinite;
             white-space: nowrap;
             z-index: 10;
+            line-height: 1.2;
         }
 
         @media (max-width: 639px) {
             .popup {
-                top: -3rem;
-                left: 50%;
-                transform: translateX(-50%);
+                top: -4.5rem;
+                right: -1rem;
+                transform: none;
+                font-size: 0.7rem;
+                padding: 0.4rem 0.6rem;
             }
             
             .popup::before {
                 content: '';
                 position: absolute;
                 top: 100%;
-                left: 50%;
-                transform: translateX(-50%);
+                right: 1rem;
                 width: 0;
                 height: 0;
-                border-left: 8px solid transparent;
-                border-right: 8px solid transparent;
-                border-top: 8px solid var(--accent-color);
+                border-left: 6px solid transparent;
+                border-right: 6px solid transparent;
+                border-top: 6px solid var(--accent-color);
             }
         }
 
@@ -687,28 +660,12 @@
         .mb-4 { margin-bottom: 1rem; }
         .mb-8 { margin-bottom: 2rem; }
         .mx-auto { margin-left: auto; margin-right: auto; }
-        .pt-2 { padding-top: 0.5rem; }
-        .pb-2 { padding-bottom: 0.5rem; }
-        .py-2 { padding-top: 0.5rem; padding-bottom: 0.5rem; }
-        .px-2 { padding-left: 0.5rem; padding-right: 0.5rem; }
-        .py-4 { padding-top: 1rem; padding-bottom: 1rem; }
-        .px-4 { padding-left: 1rem; padding-right: 1rem; }
         .font-bold { font-weight: 700; }
         .font-semibold { font-weight: 600; }
         .text-sm { font-size: 0.875rem; }
         .text-lg { font-size: 1.125rem; }
         .text-xl { font-size: 1.25rem; }
         .text-2xl { font-size: 1.5rem; }
-        .border-t { border-top: 1px solid var(--border-light); }
-        .flex { display: flex; }
-        .items-center { align-items: center; }
-        .justify-center { justify-content: center; }
-        .justify-between { justify-content: space-between; }
-        .space-y-1 > * + * { margin-top: 0.25rem; }
-        .space-y-2 > * + * { margin-top: 0.5rem; }
-        .space-y-4 > * + * { margin-top: 1rem; }
-        .space-x-2 > * + * { margin-left: 0.5rem; }
-        .space-x-4 > * + * { margin-left: 1rem; }
         .w-full { width: 100%; }
         .max-w-md { max-width: 28rem; }
         .max-w-lg { max-width: 32rem; }
@@ -721,53 +678,232 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <div class="badge">健康意識の高い人をつなぐ新しいビジネス</div>
+            <div class="badge">代理店様向け商品カタログ</div>
             <h1>
-                漢方相談エージェント
-                <span class="subtitle">代理店制度のご案内</span>
+                春日部第一薬局
+                <span class="subtitle">漢方商品ラインナップ</span>
             </h1>
             <p>
-                あなたが「紹介者＝エージェント」となり、<br>
-                漢方相談をしたい方を春日部第一薬局へ紹介することで<br>
-                <span class="highlight">継続的な報酬</span>が得られる制度です
+                代理店様にご紹介いただける<span class="highlight">厳選された漢方商品</span>をカテゴリ別にご紹介します。<br>
+                お客様のお悩みに合わせて最適な漢方をご提案いただけます。
             </p>
             <div class="button-group">
-                <a href="https://lin.ee/w5z2Hnb" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
-                    今すぐ問い合わせ
+                <a href="#contact" class="btn btn-primary">
+                    商品について相談する
                     <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="20" height="20">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
                     </svg>
                 </a>
-                <a href="#contact" class="btn btn-outline">お問い合わせ</a>
+                <a href="#products" class="btn btn-outline">商品一覧を見る</a>
             </div>
         </div>
     </section>
 
-    <!-- What is Kampo Agent -->
-    <section class="section">
+    <!-- Category 1: 不眠症・婦人科系 -->
+    <section id="products" class="section section-blue">
         <div class="container">
-            <h2>漢方相談エージェントとは？</h2>
+            <div class="category-header">
+                <svg class="category-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+                </svg>
+                <h2 class="category-title">不眠症・婦人科系</h2>
+                <p class="category-description">
+                    睡眠の質向上や女性特有のお悩みに対応する漢方薬をご紹介します。
+                    生理痛、更年期障害、不眠症などでお困りの方におすすめです。
+                </p>
+            </div>
+            <div class="grid grid-3">
+                <div class="product-card">
+                    <div class="product-image"></div>
+                    <div class="product-name">加味逍遙散</div>
+                    <div class="product-category">婦人科系・精神安定</div>
+                    <div class="product-description">
+                        女性の心身の不調に幅広く対応する代表的な漢方薬です。イライラや不安感、のぼせなどの症状を改善します。
+                    </div>
+                    <ul class="product-effects">
+                        <li>更年期障害の改善</li>
+                        <li>月経不順・生理痛の緩和</li>
+                        <li>精神的な不安定さの改善</li>
+                    </ul>
+                    <div class="product-price">参考価格：2,800円〜</div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image"></div>
+                    <div class="product-name">酸棗仁湯</div>
+                    <div class="product-category">不眠症・精神安定</div>
+                    <div class="product-description">
+                        不眠症の代表的な漢方薬です。心身の疲労による眠れない症状や、浅い眠りでお困りの方に効果的です。
+                    </div>
+                    <ul class="product-effects">
+                        <li>不眠症の改善</li>
+                        <li>精神的な疲労の回復</li>
+                        <li>夜中の目覚めの改善</li>
+                    </ul>
+                    <div class="product-price">参考価格：3,200円〜</div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image"></div>
+                    <div class="product-name">当帰芍薬散</div>
+                    <div class="product-category">婦人科系・冷え性</div>
+                    <div class="product-description">
+                        女性の冷え性や貧血、むくみなどに効果的な漢方薬です。妊娠中や産後の体調管理にも使用されます。
+                    </div>
+                    <ul class="product-effects">
+                        <li>冷え性・貧血の改善</li>
+                        <li>むくみの解消</li>
+                        <li>月経異常の改善</li>
+                    </ul>
+                    <div class="product-price">参考価格：2,600円〜</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Category 2: ダイエット -->
+    <section class="section section-orange">
+        <div class="container">
+            <div class="category-header">
+                <svg class="category-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                </svg>
+                <h2 class="category-title">ダイエット・代謝改善</h2>
+                <p class="category-description">
+                    健康的な体重管理と代謝改善をサポートする漢方薬です。
+                    運動や食事制限と併用することで、より効果的なダイエットが期待できます。
+                </p>
+            </div>
+            <div class="grid grid-3">
+                <div class="product-card">
+                    <div class="product-image"></div>
+                    <div class="product-name">防風通聖散</div>
+                    <div class="product-category">ダイエット・便秘改善</div>
+                    <div class="product-description">
+                        肥満症の代表的な漢方薬です。脂肪の分解・燃焼を促進し、便秘の改善にも効果があります。
+                    </div>
+                    <ul class="product-effects">
+                        <li>内臓脂肪の減少</li>
+                        <li>便秘の改善</li>
+                        <li>むくみの解消</li>
+                    </ul>
+                    <div class="product-price">参考価格：3,800円〜</div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image"></div>
+                    <div class="product-name">大柴胡湯</div>
+                    <div class="product-category">ダイエット・ストレス性肥満</div>
+                    <div class="product-description">
+                        ストレスによる過食や肥満に効果的です。肝機能を改善し、代謝を促進します。
+                    </div>
+                    <ul class="product-effects">
+                        <li>ストレス性肥満の改善</li>
+                        <li>肝機能の向上</li>
+                        <li>代謝の促進</li>
+                    </ul>
+                    <div class="product-price">参考価格：3,400円〜</div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image"></div>
+                    <div class="product-name">防已黄耆湯</div>
+                    <div class="product-category">ダイエット・水太り</div>
+                    <div class="product-description">
+                        水太りタイプの肥満に効果的です。体内の余分な水分を排出し、むくみを改善します。
+                    </div>
+                    <ul class="product-effects">
+                        <li>水太りの改善</li>
+                        <li>むくみの解消</li>
+                        <li>関節痛の緩和</li>
+                    </ul>
+                    <div class="product-price">参考価格：3,000円〜</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Category 3: 花粉症・アレルギー・生活習慣系 -->
+    <section class="section section-green">
+        <div class="container">
+            <div class="category-header">
+                <svg class="category-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+                </svg>
+                <h2 class="category-title">花粉症・アレルギー・生活習慣系</h2>
+                <p class="category-description">
+                    季節性アレルギーや慢性的な体調不良の改善をサポートします。
+                    免疫力向上や体質改善により、根本的な健康維持を目指します。
+                </p>
+            </div>
+            <div class="grid grid-3">
+                <div class="product-card">
+                    <div class="product-image"></div>
+                    <div class="product-name">小青竜湯</div>
+                    <div class="product-category">花粉症・鼻炎</div>
+                    <div class="product-description">
+                        花粉症や鼻炎の症状に効果的な漢方薬です。鼻水、鼻づまり、くしゃみなどの症状を改善します。
+                    </div>
+                    <ul class="product-effects">
+                        <li>花粉症症状の緩和</li>
+                        <li>鼻炎・鼻づまりの改善</li>
+                        <li>気管支炎の症状緩和</li>
+                    </ul>
+                    <div class="product-price">参考価格：2,900円〜</div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image"></div>
+                    <div class="product-name">補中益気湯</div>
+                    <div class="product-category">免疫力向上・疲労回復</div>
+                    <div class="product-description">
+                        免疫力を高め、慢性的な疲労や体力低下を改善します。病後の回復期にも効果的です。
+                    </div>
+                    <ul class="product-effects">
+                        <li>免疫力の向上</li>
+                        <li>慢性疲労の改善</li>
+                        <li>食欲不振の改善</li>
+                    </ul>
+                    <div class="product-price">参考価格：3,100円〜</div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image"></div>
+                    <div class="product-name">十味敗毒湯</div>
+                    <div class="product-category">皮膚トラブル・デトックス</div>
+                    <div class="product-description">
+                        皮膚のトラブルや体内の毒素排出に効果的です。ニキビ、湿疹、蕁麻疹などの改善に使用されます。
+                    </div>
+                    <ul class="product-effects">
+                        <li>皮膚炎・湿疹の改善</li>
+                        <li>ニキビの治療</li>
+                        <li>体内デトックス</li>
+                    </ul>
+                    <div class="product-price">参考価格：2,700円〜</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="section section-gray">
+        <div class="container">
+            <h2>代理店様のメリット</h2>
             <div class="grid grid-3">
                 <div class="card text-center">
                     <div class="card-header">
                         <svg class="card-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
                         </svg>
-                        <div class="card-title">紹介者として活動</div>
+                        <div class="card-title">豊富な商品ラインナップ</div>
                     </div>
                     <div class="card-content">
-                        <p>あなたが漢方相談を必要とする方を春日部第一薬局へ紹介</p>
+                        <p>様々なお悩みに対応できる幅広い漢方商品をご用意しています</p>
                     </div>
                 </div>
                 <div class="card text-center">
                     <div class="card-header">
                         <svg class="card-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
                         </svg>
-                        <div class="card-title">健康をサポート</div>
+                        <div class="card-title">専門知識サポート</div>
                     </div>
                     <div class="card-content">
-                        <p>自然療法や漢方に関心のある方の健康をサポート</p>
+                        <p>薬剤師による専門的なサポートで安心してご紹介いただけます</p>
                     </div>
                 </div>
                 <div class="card text-center">
@@ -775,362 +911,19 @@
                         <svg class="card-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
                         </svg>
-                        <div class="card-title">継続的な収入</div>
+                        <div class="card-title">継続的な収益</div>
                     </div>
                     <div class="card-content">
-                        <p>紹介した方が継続利用することで長期的な報酬を獲得</p>
+                        <p>リピート率の高い漢方商品で安定した収益を期待できます</p>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Target Customers -->
-    <section class="section section-gray">
-        <div class="container">
-            <h2>紹介していただきたい相談者様</h2>
-            <div class="grid grid-2">
-                <div>
-                    <h3>想定されるご相談者様</h3>
-                    <ul class="check-list">
-                        <li class="check-item">
-                            <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                            </svg>
-                            <span>漢方や自然療法に関心がある方</span>
-                        </li>
-                        <li class="check-item">
-                            <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                            </svg>
-                            <span>西洋医学に限界を感じている方</span>
-                        </li>
-                        <li class="check-item">
-                            <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                            </svg>
-                            <span>女性の体調を気にする方</span>
-                        </li>
-                        <li class="check-item">
-                            <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                            </svg>
-                            <span>家族や子どもの健康に敏感な方</span>
-                        </li>
-                        <li class="check-item">
-                            <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                            </svg>
-                            <span>親御さんの健康・病気で困っている方</span>
-                        </li>
-                        <li class="check-item">
-                            <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                            </svg>
-                            <span>ダイエットや体質改善をしたい方</span>
-                        </li>
-                        <li class="check-item">
-                            <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                            </svg>
-                            <span>皮膚や臓器のお悩みを持っている</span>
-                        </li>
-                        <li class="check-item">
-                            <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                            </svg>
-                            <span>花粉症・アレルギー体質を改善したい方</span>
-                        </li>
-                        <li class="check-item">
-                            <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                            </svg>
-                            <span>体調の変化が頻繁にある方</span>
-                        </li>
-                    </ul>
-                </div>
-                <div>
-                    <h3>よくあるお悩み</h3>
-                    <ul class="check-list">
-                        <li class="check-item">
-                            <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                            </svg>
-                            <span>慢性的な疲労・冷え性</span>
-                        </li>
-                        <li class="check-item">
-                            <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                            </svg>
-                            <span>原因不明の不調、再発する症状</span>
-                        </li>
-                        <li class="check-item">
-                            <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                            </svg>
-                            <span>月経不順・更年期・妊活</span>
-                        </li>
-                        <li class="check-item">
-                            <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                            </svg>
-                            <span>アトピー・病院で治らない皮膚病</span>
-                        </li>
-                        <li class="check-item">
-                            <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                            </svg>
-                            <span>便秘・免疫力低下</span>
-                        </li>
-                        <li class="check-item">
-                            <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                            </svg>
-                            <span>運動なしでダイエットしたい</span>
-                        </li>
-                        <li class="check-item">
-                            <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                            </svg>
-                            <span>白髪・抜け毛・若々しくいたい</span>
-                        </li>
-                        <li class="check-item">
-                            <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                            </svg>
-                            <span>ED・痔</span>
-                        </li>
-                        <li class="check-item">
-                            <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                            </svg>
-                            <span>めまい・耳鳴り</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="info-box info-box-green mt-8">
-                <h4>共通の価値観</h4>
-                <ul class="space-y-1">
-                    <li>• 「自分の体を自分で整える」意識がある</li>
-                    <li>• 個別に寄り添ってくれる相談を求めている</li>
-                    <li>• 漢方・東洋医学への信頼と期待がある</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <!-- Reward System -->
-    <section class="section">
-        <div class="container">
-            <h2>報酬制度について</h2>
-            <div class="grid grid-2">
-                <div class="card reward-card gold-card">
-                    <div class="card-header">
-                        <div class="card-title">Gold Agent</div>
-                        <div class="text-sm">ゴールドエージェント</div>
-                    </div>
-                    <div class="card-content">
-                        <div class="reward-item">
-                            <span>初回相談紹介料</span>
-                            <span class="reward-value">3,300円</span>
-                        </div>
-                        <div class="reward-item">
-                            <span>初回購入報奨金</span>
-                            <span class="reward-value">15%</span>
-                        </div>
-                        <div class="reward-item">
-                            <span>2回目以降購入報奨金</span>
-                            <span class="reward-value">5%</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="card reward-card platinum-card">
-                    <div class="card-header">
-                        <div class="card-title">Platinum Agent</div>
-                        <div class="text-sm">プレミアムエージェント</div>
-                    </div>
-                    <div class="card-content">
-                        <div class="reward-item">
-                            <span>初回相談紹介料</span>
-                            <span class="reward-value">3,300円</span>
-                        </div>
-                        <div class="reward-item">
-                            <span>初回購入報奨金</span>
-                            <span class="reward-value">20%</span>
-                        </div>
-                        <div class="reward-item">
-                            <span>2回目以降購入報奨金</span>
-                            <span class="reward-value">10%</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="info-box info-box-blue">
-                <h3>報酬シミュレーション例</h3>
-                <p class="mb-2">Gold Agentで購入価格30,000円の相談者様紹介の場合：</p>
-                <div class="space-y-2 mb-4">
-                    <div class="reward-item">
-                        <span>初回相談紹介料</span>
-                        <span>3,300円</span>
-                    </div>
-                    <div class="reward-item">
-                        <span>初回購入報奨金</span>
-                        <span>4,500円（30,000円 × 15%）</span>
-                    </div>
-                    <div class="reward-item border-t pt-2 font-semibold">
-                        <span>合計報酬</span>
-                        <span>7,800円／1名紹介あたり</span>
-                    </div>
-                </div>
-                <p class="font-semibold">
-                    ✅ たった8名の紹介で回収可能！長期的にストック型収入が狙えます。
+            <div class="info-box info-box-green">
+                <h3>🌿 すべて厳選された高品質な漢方薬</h3>
+                <p>
+                    春日部第一薬局では、効果と安全性を重視した厳選された漢方薬のみを取り扱っています。<br>
+                    お客様に安心してご利用いただける品質をお約束いたします。
                 </p>
-            </div>
-            <div class="info-box info-box-orange mt-8">
-                <h3>🎯 0次募集特別価格（先着10名限定）</h3>
-                <div class="grid grid-2 mt-4">
-                    <div class="text-center">
-                        <p class="font-semibold" style="color: var(--orange-text);">Gold Agent</p>
-                        <p class="text-sm mt-1" style="color: var(--orange-text);">通常加盟金：100,000円（税別）</p>
-                        <p class="text-lg font-bold mt-1" style="color: var(--orange-text);">特別価格：55,000円（税別）</p>
-                    </div>
-                    <div class="text-center">
-                        <p class="font-semibold" style="color: var(--orange-text);">Platinum Agent</p>
-                        <p class="text-sm mt-1" style="color: var(--orange-text);">通常加盟金：300,000円（税別）</p>
-                        <p class="text-lg font-bold mt-1" style="color: var(--orange-text);">特別価格：150,000円（税別）</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Activity Flow -->
-    <section class="section section-gray">
-        <div class="container">
-            <h2>活動の流れ</h2>
-            <div class="flow-container">
-                <div class="flow-card">
-                    <div class="flow-number">1</div>
-                    <div class="flow-title">エージェント<br>契約</div>
-                    <div class="flow-description">Gold/Platinum Agentとして契約</div>
-                </div>
-                <svg class="arrow-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                </svg>
-                <div class="flow-card">
-                    <div class="flow-number">2</div>
-                    <div class="flow-title">相談者様を紹介</div>
-                    <div class="flow-description">SNS・ブログ・対面など自由な方法で</div>
-                </div>
-                <svg class="arrow-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                </svg>
-                <div class="flow-card">
-                    <div class="flow-number">3</div>
-                    <div class="flow-title">来店・相談</div>
-                    <div class="flow-description">春日部第一薬局で専門相談</div>
-                </div>
-                <svg class="arrow-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                </svg>
-                <div class="flow-card">
-                    <div class="flow-number">4</div>
-                    <div class="flow-title">報酬お支払い</div>
-                    <div class="flow-description">月締めでお振込み</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Activity Points -->
-    <section class="section">
-        <div class="container">
-            <h2>活動のポイント</h2>
-            <div class="grid grid-2">
-                <div>
-                    <ul class="check-list">
-                        <li class="check-item">
-                            <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                            </svg>
-                            <span>ご紹介手法は自由（対面かお繋ぎ）</span>
-                        </li>
-                        <li class="check-item">
-                            <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                            </svg>
-                            <span>商品説明・相談対応は「春日部第一薬局」がすべて対応</span>
-                        </li>
-                    </ul>
-                </div>
-                <div>
-                    <ul class="check-list">
-                        <li class="check-item">
-                            <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                            </svg>
-                            <span>ご紹介条件は、ご相談者様が「春日部第一薬局」へ来店orオンラインで相談を受けること</span>
-                        </li>
-                        <li class="check-item">
-                            <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                            </svg>
-                            <span>難しい知識不要！「体に優しいものに興味ある人」をつなぐだけ</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Recommended For -->
-    <section class="section section-green">
-        <div class="container">
-            <h2>こんな方におすすめ！</h2>
-            <div class="grid grid-3">
-                <div class="card text-center">
-                    <svg class="card-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                    </svg>
-                    <p class="font-medium">副業を探している個人事業主／主婦の方</p>
-                </div>
-                <div class="card text-center">
-                    <svg class="card-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                    </svg>
-                    <p class="font-medium">美容・健康系サロン経営者</p>
-                </div>
-                <div class="card text-center">
-                    <svg class="card-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                    </svg>
-                    <p class="font-medium">コミュニティや講座を持っている方</p>
-                </div>
-                <div class="card text-center">
-                    <svg class="card-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                    </svg>
-                    <p class="font-medium">フリーランスのコーチ／カウンセラー</p>
-                </div>
-                <div class="card text-center">
-                    <svg class="card-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                    </svg>
-                    <p class="font-medium">自然志向の人が周りに多い方</p>
-                </div>
-                <div class="card text-center">
-                    <svg class="card-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                    </svg>
-                    <p class="font-medium">鍼灸師、整体師、理学療法士</p>
-                </div>
-                <div class="card text-center">
-                    <svg class="card-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                    </svg>
-                    <p class="font-medium">調剤薬局の薬剤師</p>
-                </div>
             </div>
         </div>
     </section>
@@ -1138,9 +931,10 @@
     <!-- Contact Section -->
     <section id="contact" class="section">
         <div class="container">
-            <h2>お申し込み・お問い合わせ</h2>
+            <h2>商品に関するお問い合わせ</h2>
             <p class="text-center text-lg mb-8 max-w-2xl mx-auto">
-                ご興味をお持ちの方は、下記公式LINEまで「エージェント希望」とご連絡ください。
+                商品の詳細や代理店契約について、お気軽にお問い合わせください。<br>
+                専門スタッフが丁寧にご説明いたします。
             </p>
             <div class="contact-card">
                 <div class="contact-title">春日部第一薬局</div>
@@ -1153,7 +947,7 @@
                             公式LINE
                         </a>
                         <div class="popup">
-                            こちらを<br>クリック！
+                            商品について<br>相談する！
                         </div>
                     </div>
                     <div class="contact-item">
